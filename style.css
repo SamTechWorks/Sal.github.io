@@ -25,11 +25,10 @@ body{
 .header{
   position: fixed;
   top: 0;
-  right: 0;
   left: 0;
   width: 100%;
   padding: 4rem 12% 4rem;
-  background: rgba(0,0,0,0.3);
+  background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(10px);
   display: flex;
   justify-content: space-between;
