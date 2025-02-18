@@ -16,19 +16,8 @@
     <style>
       .text-animation span {
         display: inline-block;
-        border-right: 3px solid var(--main-color);
-        white-space: nowrap;
-        overflow: hidden;
-        animation: typing 3s steps(15, end) infinite alternate, blink 0.7s infinite;
-      }
-
-      @keyframes typing {
-        from { width: 0 }
-        to { width: 100% }
-      }
-
-      @keyframes blink {
-        50% { border-color: transparent }
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
       }
     </style>
   </head>
@@ -55,8 +44,8 @@
   <section id="home" class="container text-center mt-5 pt-5 home">
     <div class="row align-items-center flex-column-reverse flex-md-row">
       <div class="col-md-6 home-content text-center text-md-start">
-        <h2>Hi !! It's <span>Salman</span></h2>
-        <h4 class="text-animation">I'm a <br><span id="changing-text"></span></h4>
+        <h1>Hi !! It's <span>Salman</span></h1>
+        <h3 class="text-animation">I'm a <br><span id="changing-text"></span></h3>
         <p>Motivated, dynamic, and skilled cybersecurity fresher with acquired skills in network security and various aspects of cybersecurity.</p>
         
         
@@ -88,26 +77,16 @@
     let textIndex = 0;
     const changingText = document.getElementById("changing-text");
 
-    function typeEffect(text, i = 0) {
-      if (i < text.length) {
-        changingText.innerHTML = text.substring(0, i + 1);
-        setTimeout(() => typeEffect(text, i + 1), 100);
-      } else {
-        setTimeout(() => deleteEffect(text), 2000);
-      }
-    }
-
-    function deleteEffect(text, i = text.length) {
-      if (i > 0) {
-        changingText.innerHTML = text.substring(0, i - 1);
-        setTimeout(() => deleteEffect(text, i - 1), 50);
-      } else {
+    function changeText() {
+      changingText.style.opacity = 0;
+      setTimeout(() => {
+        changingText.textContent = textArray[textIndex];
+        changingText.style.opacity = 1;
         textIndex = (textIndex + 1) % textArray.length;
-        setTimeout(() => typeEffect(textArray[textIndex]), 500);
-      }
+      }, 500);
     }
 
-    typeEffect(textArray[textIndex]);
+    setInterval(changeText, 3000);
   </script>
 </body>
 </html>
