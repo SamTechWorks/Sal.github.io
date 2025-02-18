@@ -13,6 +13,24 @@
     
     <!-- Boxicons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+      .text-animation span {
+        display: inline-block;
+        border-right: 3px solid var(--main-color);
+        white-space: nowrap;
+        overflow: hidden;
+        animation: typing 3s steps(15, end) infinite alternate, blink 0.7s infinite;
+      }
+
+      @keyframes typing {
+        from { width: 0 }
+        to { width: 100% }
+      }
+
+      @keyframes blink {
+        50% { border-color: transparent }
+      }
+    </style>
   </head>
 <body>
   <!-- Navbar -->
@@ -38,7 +56,7 @@
     <div class="row align-items-center flex-column-reverse flex-md-row">
       <div class="col-md-6 home-content text-center text-md-start">
         <h1>Hi !! It's <span>Salman</span></h1>
-        <h3 class="text-animation">I'm a <span>Security Analyst</span></h3>
+        <h3 class="text-animation">I'm a <span id="changing-text"></span></h3>
         <p>Motivated, dynamic, and skilled cybersecurity fresher with acquired skills in network security and various aspects of cybersecurity.</p>
         
         
@@ -65,5 +83,31 @@
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const textArray = ["Security Analyst", "Cybersecurity Enthusiast", "Ethical Hacker", "Network Defender"];
+    let textIndex = 0;
+    const changingText = document.getElementById("changing-text");
+
+    function typeEffect(text, i = 0) {
+      if (i < text.length) {
+        changingText.innerHTML = text.substring(0, i + 1);
+        setTimeout(() => typeEffect(text, i + 1), 100);
+      } else {
+        setTimeout(() => deleteEffect(text), 2000);
+      }
+    }
+
+    function deleteEffect(text, i = text.length) {
+      if (i > 0) {
+        changingText.innerHTML = text.substring(0, i - 1);
+        setTimeout(() => deleteEffect(text, i - 1), 50);
+      } else {
+        textIndex = (textIndex + 1) % textArray.length;
+        setTimeout(() => typeEffect(textArray[textIndex]), 500);
+      }
+    }
+
+    typeEffect(textArray[textIndex]);
+  </script>
 </body>
 </html>
