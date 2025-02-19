@@ -182,82 +182,34 @@ span{
   box-shadow: 0 0 25px var(--main-color);
 }
 <!-- CSS for Timeline -->
-  #education {
-    color: white;
-  }
-
-  .section-title {
-    font-size: 3rem;
-    margin-bottom: 40px;
-  }
-
-  .timeline {
-    position: relative;
-    max-width: 800px;
-    margin: auto;
-  }
-
-  .timeline::after {
-    content: '';
-    position: absolute;
-    width: 2px;
-    background-color: var(--main-color);
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    margin-left: -1px;
-  }
-
-  .timeline-item {
-    position: relative;
-    width: 50%;
-    padding: 20px;
-  }
-
-  .timeline-item.left {
-    text-align: right;
-    left: 0;
-  }
-
-  .timeline-item.right {
-    text-align: left;
-    left: 50%;
-  }
-
-  .timeline-item .year {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--main-color);
-  }
-
-  .timeline-item.left .year {
-    right: -60px;
-  }
-
-  .timeline-item.right .year {
-    left: -60px;
-  }
-
-  .timeline-content {
-    background: rgba(0, 0, 0, 0.8);
-    padding: 15px 20px;
-    border-radius: 20px;
-    border: 2px solid var(--main-color);
-    box-shadow: 0 0 10px var(--main-color);
-  }
-
-  .timeline-content h3 {
-    font-size: 1.8rem;
-    color: white;
-  }
-
-  .timeline-content p {
-    font-size: 1.2rem;
-    color: white;
-  }
+.timeline {
+      position: relative;
+      padding: 20px 0;
+    }
+    .timeline-item {
+      display: flex;
+      align-items: center;
+      position: relative;
+      margin-bottom: 30px;
+    }
+    .timeline-item.left { flex-direction: row-reverse; }
+    .timeline-item.right { flex-direction: row; }
+    .timeline-content {
+      background: #000;
+      color: white;
+      padding: 15px;
+      border-radius: 50px;
+      box-shadow: 0 0 15px #00ffee;
+      width: 40%;
+      text-align: center;
+    }
+    .timeline-year {
+      color: white;
+      font-size: 1.5rem;
+      font-weight: bold;
+      width: 10%;
+      text-align: center;
+    }
 
   @media screen and (max-width: 768px) {
     .timeline::after {
