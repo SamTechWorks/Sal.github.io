@@ -28,3 +28,70 @@
       text-align: center;
     }
 ## worked for bubbles and side without center effect
+
+
+
+## worked text and content
+.timeline {
+            position: relative;
+            max-width: 800px;
+            margin: auto;
+        }
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background: var(--main-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+            transition: 0.3s;
+        }
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            background: #000;
+            border-radius: 20px;
+            box-shadow: 0 0 15px var(--main-color);
+        }
+        .timeline-item:hover {
+            box-shadow: 0 0 30px var(--main-color);
+        }
+        .left {
+            left: 0;
+        }
+        .right {
+            left: 50%;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            width: 20px;
+            height: 20px;
+            background: var(--main-color);
+            border-radius: 50%;
+            left: -10px;
+            transition: 0.3s;
+        }
+        .right::before {
+            left: -10px;
+        }
+        .timeline-item:hover::before {
+            box-shadow: 0 0 15px var(--main-color);
+        }
+        .year {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-color);
+            color: var(--main-color);
+            padding: 5px 10px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
