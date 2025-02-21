@@ -182,13 +182,18 @@ span{
   box-shadow: 0 0 25px var(--main-color);
 }
 <!-- CSS for Timeline -->
-.timeline {
+:root {
+    --main-color: #00fff7;
+    --text-color: #ffffff;
+  }
+  
+  .timeline {
     position: relative;
     padding: 50px 0;
   }
 
   .timeline-line {
-    width: 5px;
+    width: 4px;
     height: 100%;
     background-color: var(--main-color);
     position: absolute;
@@ -220,6 +225,11 @@ span{
     max-width: 80%;
     color: var(--text-color);
     text-align: left;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .timeline-content:hover {
+    box-shadow: 0 0 25px var(--main-color);
   }
 
   .timeline-year {
@@ -230,12 +240,24 @@ span{
     font-size: 18px;
     font-weight: bold;
     color: var(--text-color);
+    background: black;
+    padding: 10px;
+    border-radius: 50%;
+    border: 2px solid var(--main-color);
+    transition: all 0.3s ease-in-out;
   }
 
   .timeline-item.right .timeline-year {
     left: auto;
     right: calc(100% + 10px);
   }
+
+  .timeline-year:hover {
+    background: var(--main-color);
+    color: black;
+    box-shadow: 0 0 10px var(--main-color);
+  }
+
 
   @media screen and (max-width: 768px) {
     .timeline::after {
