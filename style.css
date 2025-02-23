@@ -182,81 +182,99 @@ span{
   box-shadow: 0 0 25px var(--main-color);
 }
 <!-- CSS for Timeline -->
-:root {
-    --main-color: #00fff7;
-    --text-color: #ffffff;
-  }
-  
-  .timeline {
-    position: relative;
-    padding: 50px 0;
-  }
+/* Timeline Styling */
+.timeline {
+  position: relative;
+  padding: 50px 0;
+}
 
-  .timeline-line {
-    width: 4px;
-    height: 100%;
-    background-color: var(--main-color);
-    position: absolute;
-    left: 50%;
-    top: 0;
-    transform: translateX(-50%);
-  }
+/* Vertical Line */
+.timeline-line {
+  width: 5px;
+  height: 100%;
+  background-color: var(--main-color);
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+}
 
-  .timeline-item {
-    position: relative;
-    width: 50%;
-    padding: 20px;
-    margin-bottom: 50px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-  }
+/* Timeline Item */
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 20px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
 
-  .timeline-item.right {
-    align-items: flex-start;
-    margin-left: 50%;
-  }
+.timeline-item.right {
+  align-items: flex-start;
+  margin-left: 50%;
+}
 
-  .timeline-content {
-    background: rgba(0, 0, 0, 0.8);
-    padding: 20px;
-    border-radius: 50px;
-    box-shadow: 0 0 15px var(--main-color);
-    max-width: 80%;
-    color: var(--text-color);
-    text-align: left;
-    transition: all 0.3s ease-in-out;
-  }
+/* Timeline Year - Position and Hover Effect */
+.timeline-year {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: calc(100% + 10px);
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--text-color);
+  transition: color 0.3s, text-shadow 0.3s;
+}
 
-  .timeline-content:hover {
-    box-shadow: 0 0 25px var(--main-color);
-  }
+.timeline-item.right .timeline-year {
+  left: auto;
+  right: calc(100% + 10px);
+}
 
-  .timeline-year {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    left: calc(100% + 10px);
-    font-size: 18px;
-    font-weight: bold;
-    color: var(--text-color);
-    background: black;
-    padding: 10px;
-    border-radius: 50%;
-    border: 2px solid var(--main-color);
-    transition: all 0.3s ease-in-out;
-  }
+/* Hover Effect for Year */
+.timeline-year:hover {
+  color: cyan;
+  text-shadow: 0 0 10px cyan;
+}
 
-  .timeline-item.right .timeline-year {
-    left: auto;
-    right: calc(100% + 10px);
-  }
+/* Timeline Content - Box Style */
+.timeline-content {
+  background: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  border-radius: 50px;
+  box-shadow: 0 0 15px var(--main-color);
+  max-width: 80%;
+  color: var(--text-color);
+  text-align: left;
+  transition: box-shadow 0.3s;
+}
 
-  .timeline-year:hover {
-    background: var(--main-color);
-    color: black;
-    box-shadow: 0 0 10px var(--main-color);
-  }
+/* Hover Effect for Content */
+.timeline-content:hover {
+  box-shadow: 0 0 20px cyan;
+}
+
+/* 🎯 Add Circle on Vertical Timeline Line */
+.timeline-item::before {
+  content: "";
+  width: 15px;
+  height: 15px;
+  background-color: cyan;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 10px cyan;
+  transition: transform 0.3s;
+}
+
+/* Glow Effect on Hover */
+.timeline-item:hover::before {
+  transform: translate(-50%, -50%) scale(1.2);
+}
+
 
 
   @media screen and (max-width: 768px) {
