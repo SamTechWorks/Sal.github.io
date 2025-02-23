@@ -1,0 +1,92 @@
+/* Timeline Styling */
+.timeline {
+  position: relative;
+  padding: 50px 0;
+}
+
+/* Vertical Line */
+.timeline-line {
+  width: 5px;
+  height: 100%;
+  background-color: var(--main-color);
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+}
+
+/* Timeline Item */
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 20px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.timeline-item.right {
+  align-items: flex-start;
+  margin-left: 50%;
+}
+
+/* Timeline Year - Position and Hover Effect */
+.timeline-year {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: calc(100% + 10px);
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--text-color);
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+.timeline-item.right .timeline-year {
+  left: auto;
+  right: calc(100% + 10px);
+}
+
+/* Hover Effect for Year */
+.timeline-year:hover {
+  color: cyan;
+  text-shadow: 0 0 10px cyan;
+}
+
+/* Timeline Content - Box Style */
+.timeline-content {
+  background: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  border-radius: 50px;
+  box-shadow: 0 0 15px var(--main-color);
+  max-width: 80%;
+  color: var(--text-color);
+  text-align: left;
+  transition: box-shadow 0.3s;
+}
+
+/* Hover Effect for Content */
+.timeline-content:hover {
+  box-shadow: 0 0 20px cyan;
+}
+
+/* 🎯 Add Circle on Vertical Timeline Line */
+.timeline-item::before {
+  content: "";
+  width: 15px;
+  height: 15px;
+  background-color: cyan;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 10px cyan;
+  transition: transform 0.3s;
+}
+
+/* Glow Effect on Hover */
+.timeline-item:hover::before {
+  transform: translate(-50%, -50%) scale(1.2);
+}
